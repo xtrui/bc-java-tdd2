@@ -1,6 +1,7 @@
 package example;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class GuessNumberGame {
@@ -18,9 +19,23 @@ public class GuessNumberGame {
         this.answer = answer;
     }
 
-//    public boolean isValid(String input){
-//        return false;
-//    }
+    public boolean isValid(String guess) {
+        char[] guessNums = guess.toCharArray();
+        boolean isValid = true;
+        if (guessNums.length != 4) {
+            isValid = false;
+        } else {
+            HashSet<Object> set = new HashSet<>();
+            for (char guessNum : guessNums) {
+                set.add(guessNum);
+            }
+            if (set.size() < 4) {
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
+
 
     public String guess(String guess) {
         int correctNumberNum = 0;
