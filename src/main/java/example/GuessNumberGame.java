@@ -15,6 +15,10 @@ public class GuessNumberGame {
         this.answer = answer;
     }
 
+//    public boolean isValid(String input){
+//        return false;
+//    }
+
     public String guess(String guess) {
         String result;
         return "4A0B";
