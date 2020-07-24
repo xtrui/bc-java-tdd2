@@ -10,7 +10,7 @@ public class Main {
             System.out.println("please input !");
             Scanner scanner = new Scanner(System.in);
             String guess = scanner.next();
-            if (!guessNumberGame.isValid(guess)) {
+            if (!ValidTool.isValid(guess)) {
                 System.out.println("Wrong Input，Input again.");
                 guessChance--;
                 continue;

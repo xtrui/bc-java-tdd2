@@ -1,9 +1,7 @@
 package example;
 
-import java.util.HashSet;
-
 public class GuessNumberGame {
-    String answer;
+    private String answer;
 
     public GuessNumberGame(GenerateAnswer generateAnswer) {
         this.answer = generateAnswer.generate();
@@ -17,24 +15,6 @@ public class GuessNumberGame {
         this.answer = answer;
     }
 
-    public boolean isValid(String guess) {
-        char[] guessNums = guess.toCharArray();
-        boolean isValid = true;
-        if (guessNums.length != 4) {
-            isValid = false;
-        } else {
-            HashSet<Object> set = new HashSet<>();
-            for (char guessNum : guessNums) {
-                set.add(guessNum);
-            }
-            if (set.size() < 4) {
-                isValid = false;
-            }
-        }
-        return isValid;
-    }
-
-
     public String guess(String guess) {
         int correctNumberNum = 0;
         int correctLocationNum = 0;
@@ -43,7 +23,7 @@ public class GuessNumberGame {
         return correctLocationNum + "A" + (correctNumberNum - correctLocationNum) + "B";
     }
 
-    public int getCorrectNumberNum(String guess) {
+    private int getCorrectNumberNum(String guess) {
         String[] guessNums = guess.split("");
         int correctNumberNum = 0;
         for (String number : guessNums) {
@@ -54,7 +34,7 @@ public class GuessNumberGame {
         return correctNumberNum;
     }
 
-    public int getCorrectLocationNum(String guess) {
+    private int getCorrectLocationNum(String guess) {
         int correctLocationNum = 0;
         char[] chars = guess.toCharArray();
         for (int i = 0; i < chars.length; i++) {

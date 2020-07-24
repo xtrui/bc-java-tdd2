@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 
-public class GuessAnswerGameTest {
+public class GuessNumberGameTest {
     private GuessNumberGame guessNumberGame;
 
     @BeforeAll
