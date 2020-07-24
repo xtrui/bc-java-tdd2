@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GenerateAnswerTest {
 
+public class ValidToolTest {
     @BeforeAll
     static void initTestEnv() {
     }
@@ -17,10 +17,8 @@ public class GenerateAnswerTest {
     }
 
     @Test
-    void should_return_4_when_generate() {
-        GenerateAnswerImpl generateAnswer = new GenerateAnswerImpl();
-        assertEquals(4, generateAnswer.generate().length());
+    void should_return_false_when_isValid_given_1123() {
+
+        assertEquals(false, ValidTool.isValid("1123"));
     }
-
-
 }
