@@ -1,8 +1,6 @@
 package example;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 public class GuessNumberGame {
     String answer;
@@ -47,7 +45,6 @@ public class GuessNumberGame {
 
     public int getCorrectNumberNum(String guess) {
         String[] guessNums = guess.split("");
-        List<String> answerNums = Arrays.asList(answer.split(""));
         int correctNumberNum = 0;
         for (String number : guessNums) {
             if (answer.contains(number)) {

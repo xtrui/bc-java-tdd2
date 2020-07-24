@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 
 public class GuessAnswerGameTest {
+    private GuessNumberGame guessNumberGame;
 
     @BeforeAll
     static void initTestEnv() {
@@ -16,53 +17,40 @@ public class GuessAnswerGameTest {
 
     @BeforeEach
     void initEveryMethod() {
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        given(generateAnswer.generate()).willReturn("1234");
+        this.guessNumberGame = new GuessNumberGame(generateAnswer);
     }
 
     @Test
     void should_return_4A0B_when_guess_given_1234() {
-        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
-        given(generateAnswer.generate()).willReturn("1234");
-        GuessNumberGame guessNumberGame = new GuessNumberGame(generateAnswer);
+
+
         assertEquals("4A0B", guessNumberGame.guess("1234"));
     }
 
     @Test
     void should_return_2A2B_when_guess_given_1243() {
-        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
-        given(generateAnswer.generate()).willReturn("1234");
-        GuessNumberGame guessNumberGame = new GuessNumberGame(generateAnswer);
         assertEquals("2A2B", guessNumberGame.guess("1243"));
     }
 
     @Test
     void should_return_0A4B_when_guess_given_4321() {
-        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
-        given(generateAnswer.generate()).willReturn("1234");
-        GuessNumberGame guessNumberGame = new GuessNumberGame(generateAnswer);
         assertEquals("0A4B", guessNumberGame.guess("4321"));
     }
 
     @Test
     void should_return_2A1B_when_guess_given_1235() {
-        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
-        given(generateAnswer.generate()).willReturn("1234");
-        GuessNumberGame guessNumberGame = new GuessNumberGame(generateAnswer);
         assertEquals("2A1B", guessNumberGame.guess("1253"));
     }
 
     @Test
     void should_return_0A2B_when_guess_given_3456() {
-        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
-        given(generateAnswer.generate()).willReturn("1234");
-        GuessNumberGame guessNumberGame = new GuessNumberGame(generateAnswer);
         assertEquals("0A2B", guessNumberGame.guess("3456"));
     }
 
     @Test
     void should_return_0A0B_when_guess_given_5678() {
-        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
-        given(generateAnswer.generate()).willReturn("1234");
-        GuessNumberGame guessNumberGame = new GuessNumberGame(generateAnswer);
         assertEquals("0A0B", guessNumberGame.guess("5678"));
     }
 
