@@ -3,11 +3,14 @@ package example;
 import java.util.HashSet;
 
 public class ValidTool {
+
+    public static final int GUESS_NUMBER_LENGTH = 4;
+
     public static boolean isValid(String guess) {
         char[] guessNums = guess.toCharArray();
 
         boolean isValid = true;
-        if (guessNums.length != 4) {
+        if (guessNums.length != GUESS_NUMBER_LENGTH) {
             isValid = false;
         } else {
             HashSet<Object> set = new HashSet<>();
@@ -17,7 +20,7 @@ public class ValidTool {
                     return false;
                 }
             }
-            if (set.size() < 4) {
+            if (set.size() < GUESS_NUMBER_LENGTH) {
                 isValid = false;
             }
         }
