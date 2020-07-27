@@ -18,7 +18,7 @@ public class ValidToolTest {
     }
 
     @Test
-    void should_return_ringth_boolean_when_isValid_given_right_or_wrong_guess() {
+    void should_return_right_boolean_when_isValid_given_right_or_wrong_guess() {
         assertFalse(ValidTool.isValid("1123"));
         assertFalse(ValidTool.isValid("11234"));
         assertFalse(ValidTool.isValid("142A"));
