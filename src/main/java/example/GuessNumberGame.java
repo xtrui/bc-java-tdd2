@@ -1,18 +1,11 @@
 package example;
 
 public class GuessNumberGame {
+    private static final String EMPTY_STRING = "";
     private String answer;
 
     public GuessNumberGame(GenerateAnswer generateAnswer) {
         this.answer = generateAnswer.generate();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
     }
 
     public String guess(String guess) {
@@ -24,7 +17,7 @@ public class GuessNumberGame {
     }
 
     private int getCorrectNumberNum(String guess) {
-        String[] guessNums = guess.split("");
+        String[] guessNums = guess.split(EMPTY_STRING);
         int correctNumberNum = 0;
         for (String number : guessNums) {
             if (answer.contains(number)) {

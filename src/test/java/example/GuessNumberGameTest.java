@@ -1,23 +1,18 @@
 package example;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 
 public class GuessNumberGameTest {
     private GuessNumberGame guessNumberGame;
 
-    @BeforeAll
-    static void initTestEnv() {
-    }
-
     @BeforeEach
     void initEveryMethod() {
-        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        GenerateAnswer generateAnswer = mock(GenerateAnswer.class);
         given(generateAnswer.generate()).willReturn("1234");
         this.guessNumberGame = new GuessNumberGame(generateAnswer);
     }

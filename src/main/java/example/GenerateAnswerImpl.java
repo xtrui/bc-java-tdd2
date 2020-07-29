@@ -1,8 +1,9 @@
 package example;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Random;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class GenerateAnswerImpl implements GenerateAnswer {
 
@@ -10,16 +11,12 @@ public class GenerateAnswerImpl implements GenerateAnswer {
 
     @Override
     public String generate() {
-        String answer = String.valueOf(new Random().nextInt(10) + 1) +
-                (new Random().nextInt(10) + 1) +
-                (new Random().nextInt(10) + 1) +
-                (new Random().nextInt(10) + 1);
-        HashSet<String> answerSet = new HashSet<>(Arrays.asList(answer.split("")));
-        while (answerSet.size() < ANSWER_LENGTH) {
-            answerSet.add(String.valueOf(new Random().nextInt(10) + 1));
-        }
-        return String.join("", answerSet);
+        Integer[] integers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        List<Integer> answers = Arrays.asList(integers);
+        List<String> answerStr = answers.stream().map(answer -> "" + answer).collect(Collectors.toList());
 
+        Collections.shuffle(answerStr);
+        return String.join("", answerStr.subList(0, 4));
     }
 
 }
